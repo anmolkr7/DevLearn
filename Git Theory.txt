@@ -49,7 +49,7 @@ Now if we check git remote -v then it will show our repo
 
 ->git push origin master
 Here origin is where my current repo is located and master is the branch I want to push.
-Now we can see our files in our GitHub.Done
+Now we can see our files in our GitHub.
 
 
 
