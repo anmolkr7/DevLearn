@@ -1,0 +1,60 @@
+Working Directory and staging Area:- An intermediate are where commits can be formatted and reviewed before completing the commit
+push:- send a change to another repo
+pull:-grab a change from a repo
+
+Working flow:-
+-> git add (moves file to staging area)
+-> git commit (permanently moved to repo)
+
+
+These two commands will associate my name and email with any commits that I create
+-> git config --global user.name "username"
+-> git config --global user.email "useremail"
+
+Navigate to the folder whose contents you want to git
+-> git init  //creates a github repo within this folder
+
+To check above thing
+-> ls -la
+This command would list the files and there we can see a .git file as well (this wont be visible in folder) 
+
+
+-> git status
+This will show all the files (modified,new file added,etc)
+
+We need to stage these changes before we commit these changes or save these changes in our repo
+
+-> git add .
+this will add all files in current directory to staging area
+ 
+Now we must do
+-> git status
+This will show the staged files so that we can review them whether we want some file to not be committed,etc
+
+Now we save this files in our LOCAL REPOSITORY along with a message
+-> git commit -m "Adding project files"
+
+These files are still present in our local repo and not GitHub repo
+We need to tell our local client that we need to push to a remote repo (i.e GitHub repo)
+
+For this, we'll create a repo in our GitHub and copy its link and add .git to the link when pasting in gitbash/terminal
+But before doing this we must check that if we have a remote repo already configured or not
+-> git remote -v
+This will show remote repo configured
+Now say this is empty. So we need to configure
+
+->git remote add origin https://github.com/anmolkr7/DevLearn.git
+
+Now if we check git remote -v then it will show our repo
+
+->git push origin master
+Here origin is where my current repo is located and master is the branch I want to push.
+Now we can see our files in our GitHub.Done
+
+
+
+
+
+
+
+
