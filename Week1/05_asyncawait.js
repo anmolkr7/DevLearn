@@ -1,0 +1,1 @@
+//Syntactic sugar that uses callbacks/Promises under the hood

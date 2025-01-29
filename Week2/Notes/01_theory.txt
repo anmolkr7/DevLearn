@@ -1,0 +1,53 @@
+ECMAScript:-
+1.ECMAScript (ES) is a standardized specification for scripting languages
+    maintained by ECMA International (through the TC39 committee). 
+    It defines the rules, syntax, and features that a scripting language
+    like JavaScript or ActionScript must follow.
+2.It serves as a blueprint or foundation for languages like JavaScript.
+3.Analogy:Think of ECMAScript as a recipe book, and JavaScript as the dish cooked 
+following the recipe.
+
+JavaScript:-
+1.JavaScript is a programming language that conforms to the ECMAScript standard. 
+It is a high-level, interpreted language primarily used to create interactive
+and dynamic content on the web.
+Browser Context:-
+2.JavaScript runs in browsers, where it interacts with the DOM (Document Object Model)
+to manipulate web pages dynamically.
+Each browser uses a JavaScript engine (e.g., Chrome's V8, Firefox's SpiderMonkey).
+3.Modern Usage:
+Used both client-side (web browsers) and server-side (via Node.js or Bun).
+Supports frameworks and libraries like React, Angular, and Vue.js.
+
+
+Node.Js:-
+Node.js is a runtime environment that allows JavaScript to run on the server-side(backend),
+outside the browser.
+Key Points:
+1.Built on V8: Node.js uses Google Chrome’s V8 JavaScript engine for execution.
+2.Event-Driven Architecture: It's designed for non-blocking I/O operations, making it
+ideal for handling multiple requests concurrently.
+Key Features:
+1.Built-in modules (like fs for file system operations, http for creating servers).
+npm (Node Package Manager): A vast ecosystem of libraries and tools.
+2.Used for building web servers, APIs, CLI tools, and more.
+Environment:
+Provides access to features unavailable in the browser, such as file systems, network 
+requests, and process management.
+Popular Frameworks: Express.js, NestJS, and Koa.
+
+
+
+
+Bun:-
+Bun is a modern JavaScript runtime and bundler designed to provide faster performance and 
+a unified developer experience.
+Key Points:
+1.Engine: Unlike Node.js (which uses V8), Bun uses the JavaScriptCore engine 
+(from WebKit/Safari).
+2.Performance:
+Claims to be faster than Node.js in execution speed, startup time, and bundling.
+Optimized for common use cases like serving HTTP requests or compiling TypeScript.
+
+
+ 
