@@ -51,7 +51,23 @@ Now if we check git remote -v then it will show our repo
 Here origin is where my current repo is located and master is the branch I want to push.
 Now we can see our files in our GitHub.
 
+*Use SSH Remote URL for Git Operations
+Now, ensure that your GitHub repository's remote URL is set to use SSH (and not HTTPS).
 
+To check your current remote URL:
+->git remote -v
+
+If the URL starts with https://, you'll need to switch it to git@github.com:.
+To change the remote URL to SSH:
+->git remote set-url origin git@github.com:username/repository-name.git
+
+Make sure to replace username/repository-name with your actual GitHub username and repository.
+
+In order to move across branches we use
+-> git checkout branch-name
+
+Creating and Switching to a New Branch (Legacy)
+->git checkout -b new-branch-name.
 
 
 
