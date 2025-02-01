@@ -1,0 +1,24 @@
+Function	    Description
+
+safeParse	    Validates data and returns a safe result with success and error
+parse	        Validates data and throws an error on failure
+validate	    Similar to parse, but does not throw an error
+refine	        Adds custom refinement to a schema
+transform	    Transforms data as it is validated
+default	        Sets a default value for a schema
+optional	    Marks a schema as optional
+nullable	    Marks a schema as nullable
+array	        Validates an array of items
+object	        Validates an object with specific properties
+union	        Validates data that matches one of several schemas
+intersection	Combines two schemas (AND logic)
+literal	        Validates a literal value
+catch	        Adds a custom catch block for handling exceptions
+instanceof	    Validates if a value is an instance of a class
+z.enum	        Validates if the value is one of the values in an enum
+
+
+//Refer to zod documentation for various zod primitive functions
+like zod.string().url()
+zod.string().email()
+etc
