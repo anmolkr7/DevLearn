@@ -21,9 +21,11 @@ app.post('/conversation',(req,res)=>{
 /*
 This route listens for GET requests at the root (/) path and 
 sends back "Hello World!" as the response.
-Syntax:-app.get(path, callback)
+Syntax:-app.get(path, middleware1, middleware2, ..., finalHandler);
 path:The URL or route that the server listens to. For example, /, /about, /users/:id, etc.
-callback: A function that handles the incoming request and sends the response. 
+callbacks:
+1. funnctions e.g middlewares
+2. A function that handles the incoming request and sends the response. 
 It takes three arguments: req (request), res (response), and next 
 (a function to pass control to the next middleware).
 

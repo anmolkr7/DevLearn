@@ -53,7 +53,7 @@ tasks like logging, authentication, or data parsing.
 const express=require('express')
 const app=express()
 const port=3002
-app.use(express.json()); //this is a middleware 
+app.use(express.json()); //this is a middleware that will be called for every route below this line
 app.get('/',(req,res)=>{
     //console.log(req.body) this will log the whole body
     console.log(req.body.msg)//this will log the specific key
