@@ -11,7 +11,7 @@
 /*
 const express = require('express');
 const app = express();
-const PORT = 3007;
+const PORT = 3006;
 app.get('/health-checkup', (req, res) =>{
     const kidneyid=req.query.kidneyid;
     const username=req.headers.username;
@@ -46,7 +46,7 @@ where each function takes three arguments: req (request), res (response), and ne
 
 
 //BETTERY WAY TO DO IS USING MIDDLEWARES
-/*const express = require('express');
+const express = require('express');
 const app = express();
 const PORT = 3007;
 function userMiddleware(req,res,next){
@@ -59,7 +59,7 @@ function userMiddleware(req,res,next){
         });
     }
     else{
-        next();
+        next(); //passes control to next middleware
     }
 };
 function kidneymiddleware(req,res,next){
@@ -72,7 +72,7 @@ function kidneymiddleware(req,res,next){
         });
     }
     else{
-        next();
+        next(); //passes control to next middleware
     }
 };
 app.get('/health-checkup', userMiddleware,kidneymiddleware, (req, res) => {
@@ -81,7 +81,7 @@ app.get('/health-checkup', userMiddleware,kidneymiddleware, (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`Server is running on port PORT`);
-});*/
+});
 
 
 /*
