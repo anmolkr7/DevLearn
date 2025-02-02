@@ -97,9 +97,11 @@ fetchData();
 
 
 Key Points About the Response Object
+✔️ Only works if the response is valid JSON.
+✔️ Can only be called once per response.
 response.ok → true if the request was successful (status 200-299).
 response.status → HTTP status code (e.g., 200, 404, 500).
-response.json() → Converts the response body to JSON.
+response.json() → extracts and parses JSON data from the response.
 response.text() → Converts the response body to plain text.
 response.blob() → Converts the response body to binary data (file, image, etc.).
 */
