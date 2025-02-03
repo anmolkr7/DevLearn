@@ -75,10 +75,11 @@ app.post("/signin", function (req, res) {
    /*
     The jwt.sign() function creates a JSON Web Token (JWT), which is used for authentication.
     📌 Breakdown of the function:
-    jwt.sign(payload, secretKey)
+    jwt.sign(payload, secretOrPrivateKey, [options, callback])
     payload: The data to be stored inside the token (e.g., { username: username }).
     secretKey: A secret key ("shhhhh") used to digitally sign the token.
-   */
+    options (optional): Configuration options like the token's expiration time, audience, issuer, etc.
+    */
 });
 
 app.get("/users", function (req, res) {
@@ -86,6 +87,17 @@ app.get("/users", function (req, res) {
   try {
     const decoded = jwt.verify(token, jwtPassword);  //verify token
     /*
+    jwt.verify(token, secretOrPublicKey, [options, callback])
+
+    jwt.verify() with a callback, you pass a callback function that receives two 
+    parameters:
+    err: This contains any error that occurred during the verification process.
+         If the token is invalid or expired, err will be populated with an error object.
+         If the verification is successful, err will be null.
+    decoded: This contains the decoded payload of the JWT.
+
+    If the token is valid and correctly verified, decoded will hold the data you encoded when signing the token (e.g., the username).
+    If there was an error during verification, decoded will be undefined.
     If the token is valid, it returns the decoded payload (an object containing the original data stored in the token).
     If the token is invalid (expired, tampered, or incorrect secret), it THROWS AN ERROR.
     */

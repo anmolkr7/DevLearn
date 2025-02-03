@@ -49,10 +49,10 @@ The second argument passed to mongoose.model is an object that defines the struc
 (or schema) of the data you want to store in MongoDB.This schema tells Mongoose how 
 the documents in the users collection should look.
 */
-const User = mongoose.model("User", {
+const User = mongoose.model("users", {
   name: String,
   email: String,
-  pasword: String,
+  password: String,
 });
 
 const app = express();
@@ -61,7 +61,51 @@ app.use(express.json());
 function userExists(username, password) {
   // should check in the database
 }
+app.post('/signup',async function(req,res){
+    const name=req.body.name
+    const username=req.body.username
+    const password=req.body.password
+    
+    /*
+    User.findOne() is a Mongoose method that searches for a single document in the users 
+    collection of the MongoDB database.
+    Promise is returned by User.findOne() so we can use .then / async await
+    { email: username }: This is the query condition. It is looking for a user document 
+    whose email field matches the value stored in the username variable.
+    The query is usually an object specifying the fields to match in the database.
+    */
+    const existinguser=await User.findOne({email:username})
+    if(existinguser){
+        return res.status(400).send("Username already exists")
+    }
+    /*
+    new User({...}) is creating a new instance of the User model.
+    */
+    const user=new User({
+        name:name,
+        email:username,
+        password:password
+    })
 
+    /*
+    user.save() is a Mongoose method that saves the newly created user document 
+    into the MongoDB database.
+    save() method returns a Promise that resolves once the user is successfully saved or
+    rejects with an error if something goes wrong
+    */
+    user.save()
+    .then(() => {
+    // handle success, e.g., send a response to the client
+    res.json({"msg":"User saved successfully!"});
+    })
+    .catch((err) => {
+    // handle error, e.g., send error response
+    res.json({"msg":"Error saving user"});
+    });
+
+})
+
+/*
 app.post("/signin", async function (req, res) {
   const username = req.body.username;
   const password = req.body.password;
@@ -90,5 +134,7 @@ app.get("/users", function (req, res) {
     });
   }
 });
-
-app.listen(3000);
+*/
+app.listen(3000,()=>{
+    console.log("Listening on PORT")
+});
