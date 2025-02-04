@@ -1,13 +1,12 @@
-<!-- 
-Now lets say you dont have access to the calculation logic on the frontend.
-Lets assume its a hard problem that someone has exposed on a backend server
-and you need to hit the server can get back the value
-Lamen words:- populatediv() is in backend...you need to hit it with inputs and
-get the result from backend and display
-craete your server and run it first :- "http://localhost:3000/sum?a=1&b=2"
-you can alternate the query params
- -->
- <!DOCTYPE html>
+ <!-- Debouncing
+ 👉 Ensures that a function executes only after a delay, resetting the timer 
+ each time the event occurs.
+ 🔹 Use Case:
+ Prevents multiple API calls while typing in a search bar (autocomplete).
+ Reduces the frequency of resize or scroll events. -->
+
+
+<!DOCTYPE html>
  <html lang="en">
  <head>
      <meta charset="UTF-8">
@@ -15,6 +14,13 @@ you can alternate the query params
      <title>Document</title>
  </head>
  <script>
+    function  debouncepopulatediv(){
+        //delay the call to populateDiv until ive not been called for 100ms
+        //and i've been called atleast once
+        setTimeout(function(){
+            populateDiv()
+        },100) 
+    }
      function populateDiv(){
         //const element=document.getElementById("finalsum")
         const a=document.getElementById("first number").value
@@ -27,10 +33,11 @@ you can alternate the query params
             document.getElementById("finalsum").innerHTML=data
      })
      }
+
  </script>
  <body>
-     <input id="first number" type="text" placeholder="First Number"></input> <br></br>
-     <input id="second number" type="text" placeholder="Second Number"></input> <br></br>
+     <input oninput="debouncepopulatediv()"  id="first number" type="text" placeholder="First Number"></input> <br></br>
+     <input oninput="debouncepopulatediv()" id="second number" type="text" placeholder="Second Number"></input> <br></br>
      <button onclick="populateDiv()">Calculate Sum</button> <br></br>
      <div id="finalsum"></div>
  </body>
