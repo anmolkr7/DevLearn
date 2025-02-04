@@ -1,0 +1,38 @@
+<!-- 
+Now lets say you dont have access to the calculation logic on the frontend.
+Lets assume its a hard problem that someone has exposed on a backend server
+and you need to hit the server can get back the value
+Lamen words:- populatediv() is in backend...you need to hit it with inputs and
+get the result from backend and display
+craete your server and run it first :- "http://localhost:3000/sum?a=1&b=2"
+you can alternate the query params
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+ </head>
+ <script>
+     function populateDiv(){
+        //const element=document.getElementById("finalsum")
+        const a=document.getElementById("first number").value
+        const b=document.getElementById("second number").value
+        //.innerHTML can get or set the HTML content inside an element
+        //element.innerHTML=parseInt(a)+parseInt(b);  //takes it as string so we need to parse
+        fetch("http://localhost:3000/sum?a="+a+"&b="+b)
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("finalsum").innerHTML=data
+     })
+     }
+ </script>
+ <body>
+     <input id="first number" type="text" placeholder="First Number"></input> <br></br>
+     <input id="second number" type="text" placeholder="Second Number"></input> <br></br>
+     <button onclick="populateDiv()">Calculate Sum</button> <br></br>
+     <div id="finalsum"></div>
+ </body>
+ </html>

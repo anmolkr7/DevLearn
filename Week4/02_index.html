@@ -17,12 +17,16 @@ i.e
 </head>
 <script>
     function populateDiv(){
-        
+        const element=document.getElementById("finalsum")
+        const a=document.getElementById("first number").value
+        const b=document.getElementById("second number").value
+        //.innerHTML can get or set the HTML content inside an element
+        element.innerHTML=parseInt(a)+parseInt(b);  //takes it as string so we need to parse
     }
 </script>
 <body>
-    <input type="text" placeholder="First Number"></input> <br></br>
-    <input type="text" placeholder="Second Number"></input> <br></br>
+    <input id="first number" type="text" placeholder="First Number"></input> <br></br>
+    <input id="second number" type="text" placeholder="Second Number"></input> <br></br>
     <button onclick="populateDiv()">Calculate Sum</button> <br></br>
     <div id="finalsum"></div>
 </body>
