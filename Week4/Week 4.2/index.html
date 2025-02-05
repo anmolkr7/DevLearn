@@ -1,15 +1,95 @@
+<!DOCTYPE html>
 <html>
+<head>
     <script>
+        let gloabalid=1;
+        function markasdone(todoid){
+            const parent=document.getElementById(todoid);
+            parent.children[2].innerHTML="Done!"
+            /*
+            parent
+            This refers to a parent element in the DOM. It could be any HTML 
+            element that has children, such as a div, ul, or section.
+            parent.children
+            .children is a property that returns a live HTMLCollection of all 
+            child elements
+            parent.children[2]s
+            This accesses the third child element
+            */
+        }
+        function createchild(title, description, id) {
+        const child = document.createElement("div");
+        const firstgrandchild = document.createElement("div");
+        firstgrandchild.innerHTML = title;
+        const secondgrandchild = document.createElement("div");
+        secondgrandchild.innerHTML = description;
+        const thirdgrandchild = document.createElement("button");
+        thirdgrandchild.innerHTML = "Mark as done";
+        thirdgrandchild.setAttribute("onclick", `markasdone(${id})`);
+        /*
+        markasdone(${id})
+        This is a function call. The markasdone() function will be executed with 
+        the value of id passed as an argument.
+        */
+        child.appendChild(firstgrandchild);
+        child.appendChild(secondgrandchild);
+        child.appendChild(thirdgrandchild)
+        child.setAttribute("id", id);
+        /*
+        The .setAttribute() method in JavaScript is used to set the value of an attribute on a specified element.
+        Syntax:
+        element.setAttribute(attributeName, value);
+        */
+        return child;
+    }
         function addTodo(){
             const title=document.getElementById("title").value
             const description=document.getElementById("description").value
+            /*
+            document.getElementById("container").
+            innerHTML=`
+            <div>
+                <div>${title}</div>
+                <div>${description}</div>
+                <button>Mark as done</button>
+            </div>
+            `
+
+            The above logic would replace/remove the previous todo everytime we click
+            on new todo. But we add that everytime we click on add todo, then it gets appended
+            below the previous todo.
+            To achieve this :-
+        
+            const originalhtml=document.getElementById("container").innerHTML;
+            document.getElementById("container").innerHTML=originalhtml+ `
+            <div>
+                <div>${title}</div>
+                <div>${description}</div>
+                <button>Mark as done</button>
+            </div>
+            `
+
+            But above method is also an ugly way there is a better way by using
+            document.createElement("") is a JavaScript method used to create a 
+            new element dynamically in the DOM. However, creating the 
+            element alone does not insert it into the page—you need to append it 
+            somewhere.
+            So we have to implement a outer div and contains two divs title and desc and also a button and finally
+            append them. So:-
+            */
+            const parent=document.getElementById("container");
+            //.appendchild() takes only an element inside it as parameter
+            parent.appendChild(createchild(title,description,gloabalid++))
+            //Here createchild function returns an element so its fine.
         }
     </script>
+</head>
+    <body>
     <div>
-
         <input id="title" type="text" placeholder="Title"></input> <br></br>
         <input id="description" type="text" placeholder="Description"></input> <br></br>
         <button onclick="addTodo()">Add Todo</button>
-
+        <div id="container"></div>
     </div>
+    </body>
 </html>
