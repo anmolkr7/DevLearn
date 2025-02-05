@@ -82,6 +82,16 @@
             parent.appendChild(createchild(title,description,gloabalid++))
             //Here createchild function returns an element so its fine.
         }
+        /*
+        Problem with this approach- Very hard to remove and add elements
+        NO CENTRAL STATE
+        1.What if there is a server where these todos are put
+        2.What if you update a todo from your mobile app
+        You will get back the new array of todos on the frontened
+        3.How will you update the DOM then
+        4.You only have a addtodo function
+        5.You dont have an updateTodo or removeTodo function yet
+        */
     </script>
 </head>
     <body>
@@ -93,3 +103,5 @@
     </div>
     </body>
 </html>
+
+
