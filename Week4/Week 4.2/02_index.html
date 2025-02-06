@@ -4,3 +4,70 @@ webpage
 If you can write a function that takes this state as an input and renders the op 
 then it is much more powerful than our previous approach- -->
 
+<!DOCTYPE html>
+<html>
+<head>
+    <body>
+    <div>
+        <input id="title" type="text" placeholder="Title"></input> <br></br>
+        <input id="description" type="text" placeholder="Description"></input> <br></br>
+       <!--  <button onclick="addTodo()">Add Todo</button> -->
+        <div id="container"></div>
+    </div>
+    <script>
+        let gloabalid=1;
+        function markasdone(todoid){
+            const parent=document.getElementById(todoid);
+            parent.children[2].innerHTML="Done!"
+        }
+        function createchild(title, description, id) {
+        const child = document.createElement("div");
+        const firstgrandchild = document.createElement("div");
+        firstgrandchild.innerHTML = title;
+        const secondgrandchild = document.createElement("div");
+        secondgrandchild.innerHTML = description;
+        const thirdgrandchild = document.createElement("button");
+        thirdgrandchild.innerHTML = "Mark as done";
+        thirdgrandchild.setAttribute("onclick", `markasdone(${id})`);
+        child.appendChild(firstgrandchild);
+        child.appendChild(secondgrandchild);
+        child.appendChild(thirdgrandchild)
+        child.setAttribute("id", id);
+        return child;
+    }
+        function addTodo(){
+            const title=document.getElementById("title").value
+            const description=document.getElementById("description").value
+            const parent=document.getElementById("container");
+            parent.appendChild(createchild(title,description,gloabalid++))
+        }
+        /*
+        For this case, consider:-
+        State will always be an array
+        every element of state would have a title ,description and id
+
+        Also how to update DOM?
+        IF there are 3 in state then you see 3 in DOM 
+        IF you get 5 in state, you remove previous 3 and add new 5 in DOM
+        */
+        function updateDomAcctostate(state){
+            const parent=document.getElementById("container"); 
+            parent.innerHTML=""//cleared the container
+            //Now for every state variable i will call the createchild func and append it
+            for(let i=0;i<state.length;i++)
+            {
+                const child=createchild(state[i].title,state[i].description,state[i].id)
+                parent.appendChild(child);
+            }
+        }
+        window.setInterval(async function(){
+            const res=await fetch("http://localhost:8080/todos")
+            const json=await res.json();
+            updateDomAcctostate(json.todos)
+        },2000)
+    </script>
+    </body>
+</head>
+</html>
+ 
+
