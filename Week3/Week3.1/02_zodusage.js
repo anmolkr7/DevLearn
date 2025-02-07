@@ -39,6 +39,7 @@ app.get('/health-checkup', (req, res) => {
     throwing an error. Instead of throwing an exception if validation 
     fails, IT RETURNS AN OBJECT that contains the validation result.
 
+    
     How safeParse Works
     1.If the data validates successfully, safeParse RETURN AN OBJECT WITH A
     SUCCESS:TRUE PROPERTY and the parsed data under the data property.
