@@ -13,8 +13,21 @@ import './App.css'
 App is a React functional component that acts as the main entry point of your app.
 In React, components are functions that return JSX (HTML-like syntax).
 The function must return a single JSX element (or a fragment <></>).
+In React, component names must start with a capital letter to be recognized as custom components.
 */
 function App() {
+  /*
+  This is a state declaration in React using the useState hook. It allows a component 
+  to store and update values dynamically.
+  useState(0): Initializes a state variable with a default value of 0.
+  count: The current state value (initially 0).
+  setCount: The function used to update the state.
+
+  Why Use useState?
+  Maintains State → Stores values between renders.
+  Triggers Re-Renders → Automatically updates the UI.   //IMPORTANT
+  Functional Updates → Can use the previous state
+  */
   const [count, setCount] = useState(0)
 
   return (
