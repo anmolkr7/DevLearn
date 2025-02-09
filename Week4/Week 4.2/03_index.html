@@ -1,0 +1,17 @@
+<!-- In previous 02_index.html, the DOM used to be clear upfront whenever
+ the server gave us new todos array
+We need to not clear it upfront and rather update it based on what has changed
+-->
+
+<!-- Question is,How does it calculate what all has changed
+Has a todo been marked as complete
+has a todo been removed from the backend
+Ans:- By remembering the old todos in a variable and then 
+comparing with the new todos received from backend (VIRTUAL DOM) --> 
+
+<!-- 
+React:- ✅ Virtual DOM – Optimizes rendering performance
+✅ State Management – Manages dynamic UI updates efficiently 
+i.e calculates the diff-->
+
+<!-- React DOM:-Tells react how to add/remove elements from DOM -->
