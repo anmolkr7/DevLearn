@@ -45,6 +45,8 @@ mongoose.connect("mongodb+srv://anmolkr7:mongodb952@cluster0.qyhdh.mongodb.net/u
 
 /*
 mongoose.model is a function that creates a Mongoose model.
+The first argument in mongoose.model("ModelName", schema) is the singular 
+name of the collection (Mongoose automatically pluralizes it).
 The second argument passed to mongoose.model is an object that defines the structure 
 (or schema) of the data you want to store in MongoDB.This schema tells Mongoose how 
 the documents in the users collection should look.
