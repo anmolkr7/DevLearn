@@ -12,7 +12,7 @@ function adminMiddleware(req, res, next) {
     })
     .then(function(value){
         if(value){
-            next();
+            next(); 
         } 
         else
         {
