@@ -198,6 +198,9 @@ The .then() method Schedules the callback (the function you pass to
 However, the rest of the code just after the .then()/.then() chain 
 continues executing immediately, without waiting for the Promise
 to resolve and finally atlast then callback is done
+
+
+DO CHAINING OF PROMISES AND CALLBACK HELL
 */
 
 
