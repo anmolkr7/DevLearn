@@ -1,0 +1,41 @@
+<!-- Lets create a  counter app using state/components in HTML. DONT USE REACT YET.
+USE DOM MANIPULATION -->
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <div id="buttonParent"></div>
+    <script>
+        //1.state initialisation
+        let state={
+            count:0
+        }
+        //Defining button component
+        function onButtonPress(){
+            state.count++; //update the state 
+            buttonComponentReRender();//and then re render
+        }
+        //When we reach react we wont be required to write down the below rerender function
+        function buttonComponentReRender(){
+            document.getElementById("buttonParent").innerHTML=""; //clears the div or button
+            const component=buttonComponent(state.count);
+            document.getElementById("buttonParent").appendChild(component)//adds new button with updated value
+        }
+        //Defining button component
+        function buttonComponent(count){
+            const button=document.createElement("button");
+            button.innerHTML=`Counter ${count}`;
+            button.setAttribute("onclick",`onButtonPress()`);
+            return button;
+            /*
+            It will return something like this
+            <button onclick="onButtonPress">
+                Counter 1
+            </button>    
+            */
+        }
+        buttonComponentReRender();
+        //✅ React automatically updates the button without manually clearing and re-adding elements.
+    </script>
+</body>
+</html>

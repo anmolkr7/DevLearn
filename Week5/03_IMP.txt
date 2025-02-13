@@ -1,0 +1,19 @@
+To create a react app you usually need to worry about two things
+Creators of frontend framework realised that all websites can effectively be divided into two parts:
+1. State:
+An object that represents the current state of the app . It represents the dynamic things in your app
+(things that change) eg:-value of counter
+State is a built-in React feature that allows components to remember and manage data between renders.
+It determines how a component behaves and what it displays.
+
+2. Components
+How a DOM element should render, given a state as input
+It is re-usable,dynamic ,HTML snippet that changes given the state as input
+Eg:- Button is component. It takes the state(currentCount) as an input and is supposed to render
+accordingly
+
+Re-Rendering:- A state change triggers a re-render.
+A re-render represents the actual DOM being manipulated when the state changes
+
+YOU USUALLY HAVE TO DEFINE ALL YOUR COMPONENTS ONCE AND THEN ALL YOU HAVE TO DO IS UPDATE THE
+STATE OF YOUR APP. REACT TAKES CARE OF RE-RENDERING YOUR APP
