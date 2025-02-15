@@ -16,6 +16,7 @@ USE DOM MANIPULATION -->
             buttonComponentReRender();//and then re render
         }
         //When we reach react we wont be required to write down the below rerender function
+        //This will be done by react library
         function buttonComponentReRender(){
             document.getElementById("buttonParent").innerHTML=""; //clears the div or button
             const component=buttonComponent(state.count);
