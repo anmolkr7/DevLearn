@@ -4,6 +4,22 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import axios from "axios"
 /*
+Reconciliation
+Reconciliation is the process React uses to compare and update the Virtual DOM 
+efficiently whenever the state or props change, minimizing unnecessary 
+re-renders.
+
+How Reconciliation Works
+1.Render Phase:
+When state or props change, React creates a new Virtual DOM tree.
+2.Diffing Algorithm (Comparing the Old and New Virtual DOM)
+React compares the new Virtual DOM with the previous one to detect changes.
+It only updates what has changed, instead of re-rendering everything.
+3.Commit Phase:
+React applies the necessary updates to the real DOM.
+
+
+
 Hooks are functions that let you use state and lifecycle features in functional components without 
 writing class components.
 Before Hooks, only class components could manage state and lifecycle. Hooks allow: 
