@@ -65,6 +65,7 @@ function App() {
     </div>
   )
 }
+export default App
 /*
 Now say we want to improvise our logic.
 We create two buttons and clicking on them takes us to landing page and
@@ -93,6 +94,38 @@ we will wrap the logic (useNavigate and button thing that calls navigate) inside
 a component and then place this component inside BrowserRouter
 Solution:- https://gist.github.com/anmolkr7/9aabce03097a52fffeefdcc6ad4478e3
 */
-export default App
 
+/*
+LAZY LOADING
+Lazy loading is a technique used to dynamically load components only when needed, 
+reducing the initial bundle size and improving performance.
+
+React provides React.lazy() for component-based lazy loading, and it works well with 
+React Router for route-based lazy loading.
+
+IMPORTANT:-
+1.React requires a fallback UI when using React.lazy(), otherwise, it will throw an error.
+2.a lazy-loaded component has to be wrapped in <Suspense>.
+
+Why <Suspense>?
+1.<Suspense> ensures proper handling of the lazy-loaded component.
+2.Prevents crashes when React tries to render the component before loading is complete.
+Code:- https://gist.github.com/anmolkr7/c4c40e8eedea5ea5b434cdff0bb05efe
+*/
+
+
+/*
+PROP DRILLING IN REACT
+Passing props is a great way to explicitly pipe data through your UI tree to the 
+components that use it.
+
+But passing props can become verbose and inconvenient when you need to pass some 
+prop deeply through the tree, or if many components need the same prop. The nearest 
+common ancestor could be far removed from the components that need data, and 
+lifting state up that high can lead to a situation called “prop drilling”.
+
+Wouldn’t it be great if there were a way to “teleport” data to the components in 
+the tree that need it without passing props? With React’s context feature, there is!
+
+*/
 
