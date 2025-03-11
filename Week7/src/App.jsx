@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Landing } from './pages/Landing'
 import { Dashboard } from './pages/Dashboard'
 /*
@@ -50,15 +51,48 @@ This results in faster transitions and a smoother UX.
 */
 
 function App() {
-  
   return (
+    <div>
+      <div>
+        Hi This is the topbar and it remains fixed for every route
+      </div>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Landing/>}/>
           <Route path="/dashboard" element={<Dashboard/>}/>
         </Routes>
       </BrowserRouter>
+    </div>
   )
 }
+/*
+Now say we want to improvise our logic.
+We create two buttons and clicking on them takes us to landing page and
+dashboard page respectively
+Solution:- https://gist.github.com/anmolkr7/81ca2d707a578e58e664df114b3ba496
 
+But the above solution way is a wrong way using window.location.href
+Page Reload	      ✅ Reloads the page	
+Routing Type	    ❌ Full page reload (like traditional websites)	
+History Stack	    ❌ Replaces the current page	
+Performance	      ❌ Slower (because of reload)	
+Best Use Case	    When a hard refresh is needed (e.g., logging out)
+This is against react's single page application. IT is like traditional website loading all
+the bundles again to client side from the server
+*/
+
+/*
+Correct way:-
+useNavigate is a hook from react-router-dom
+useNavigate is the preferred way for navigation in React Router as it enables smooth 
+client-side transitions without reloading.
+
+CAAREEFULLLL
+useNavigate cannot be used outside BrowserRouter. So to solve this issue
+we will wrap the logic (useNavigate and button thing that calls navigate) inside
+a component and then place this component inside BrowserRouter
+Solution:- https://gist.github.com/anmolkr7/9aabce03097a52fffeefdcc6ad4478e3
+*/
 export default App
+
+
