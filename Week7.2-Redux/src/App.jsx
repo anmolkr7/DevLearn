@@ -152,3 +152,117 @@ function Buttons()
   )
 }
 export default App
+
+/*
+Redux is synchronous by default. To handle async operations (like API calls), we use 
+middleware like Redux Thunk
+
+Redux Thunk Middleware
+It allows action creators to return functions instead of plain objects, 
+enabling delayed or conditional dispatching.
+
+Step 1: Create an Async Thunk
+
+import { createAsyncThunk } from "@reduxjs/toolkit";
+export const fetchData = createAsyncThunk("data/fetchData", async () => {
+  const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+  return response.json();
+});
+The first argument "data/fetchData" is the action type.
+The second argument is an async function that fetches data.
+
+
+Step 2: Handle Async Actions in a Slice
+
+import { createSlice } from "@reduxjs/toolkit";
+import { fetchData } from "./fetchDataThunk"; // Import the async thunk
+const dataSlice = createSlice({
+  name: "data",
+  initialState: {
+    data: [],
+    loading: false,
+    error: null,
+  },
+  reducers: {}, // No normal reducers needed
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchData.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchData.fulfilled, (state, action) => {
+        state.loading = false;
+        state.data = action.payload;
+      })
+      .addCase(fetchData.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      });
+  },
+});
+export default dataSlice.reducer;
+
+What is builder.addCase in Redux Toolkit?
+builder.addCase is a method used inside extraReducers in Redux Toolkit to handle specific 
+actions, especially for async operations created with createAsyncThunk.
+Instead of writing multiple case statements like in traditional Redux, builder.addCase 
+allows you to handle different states (pending, fulfilled, rejected) in a structured way.
+
+
+Step 3: Configure the Store
+After exporting dataSlice.reducer, we need to add it to the Redux store.
+
+📌 Create store.js
+
+
+import { configureStore } from "@reduxjs/toolkit";
+import dataReducer from "./dataSlice"; // Import the reducer
+
+const store = configureStore({
+  reducer: {
+    data: dataReducer, // Register the reducer
+  },
+});
+export default store;
+
+Step 4: Provide the Store to React
+Now, wrap your entire React app with the Redux Provider.
+
+Step 5: Use fetchData in a Component
+Now, we can dispatch the async action in a React component.
+
+📌 Create DataComponent.js
+
+
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchData } from "./fetchDataThunk"; // Import async thunk
+
+const DataComponent = () => {
+  const dispatch = useDispatch();
+  const { data, loading, error } = useSelector((state) => state.data); // Get state
+
+  useEffect(() => {
+    dispatch(fetchData()); // Dispatch async action on mount
+  }, [dispatch]);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
+
+  return (
+    <ul>
+      {data.map((post) => (
+        <li key={post.id}>{post.title}</li>
+      ))}
+    </ul>
+  );
+};
+
+export default DataComponent;
+
+*/
+
+
+/*
+See RTK QUERY and useSelector in redux toolkit
+
+*/
