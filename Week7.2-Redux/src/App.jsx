@@ -4,6 +4,8 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 /*
+npm install @reduxjs/toolkit react-redux
+
 Redux is a state management library for JavaScript apps. It helps manage global 
 state in a predictable way, especially in large applications.
 
@@ -73,6 +75,12 @@ Structure to follow and import as necessary
 
 VERY IMPORTANT:- Any component that uses Redux hooks (useSelector, useDispatch) must be inside 
 the <Provider> component to access the Redux store along with the value store as a prop
+
+Step I followed:
+1. Create counter slice in counterSlice.js file inside redux/slices
+and exported actions and reducer
+2.Configure the slice(s) into one universal store inside redux/store.js
+
 */
 function App() {
   return (
