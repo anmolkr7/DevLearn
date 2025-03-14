@@ -1,7 +1,7 @@
 import { useContext, useMemo, useState } from "react"
 import { CountContext } from "./context";
 import { RecoilRoot, useRecoilValue, useSetRecoilState } from "recoil";
-import { countAtom } from "./store/atoms/count";
+import { countAtom, evenSelector } from "./store/atoms/count.jsx";
 /*
 PROBLEM WITH CONTEXT API:-
 See:- https://gist.github.com/anmolkr7/00b62f63c2b67889206261dd454b44d0 
@@ -65,7 +65,12 @@ setState((prev) => newValue): Updates based on the previous value.
 RecoilRoot is a required component that provides the Recoil state context to your 
 application. All Recoil-related components (atoms, selectors, and hooks) must be 
 inside a RecoilRoot.
+Without RecoilRoot, using Recoil hooks (useRecoilState, useRecoilValue, etc.) 
+will throw an error.
+Think of it like React’s Context.Provider but for Recoil state! 🚀
 
+NOTE:-IF YOU KNOW THAT A STATE VALUE NEEDS TO DEFINED AND USED INSIDE THE SAME COMPONENT AND
+NOT ANYWHERE ELSE THEN NO NEED TO CREATE ATOM FOR IT AND MAKING USING OF RECOIL LOGIC
 
 */
 function App() {
@@ -80,7 +85,7 @@ function App() {
 }
 function Count()
 {
-  
+  console.log("rendered")
   return(
     <div>
        <CountRender/>
@@ -102,6 +107,7 @@ function Buttons()
 {
   //This need only setcount to update the value. So
   const setCount=useSetRecoilState(countAtom)
+  const iseven=useRecoilValue(evenSelector);
   return(
     <div>
       <button onClick={()=>{
@@ -110,10 +116,20 @@ function Buttons()
       <button onClick={()=>{
         setCount(prevCount=>prevCount-1)
       }}>Decrease</button>
+      {iseven && <p>It is even</p>}
     </div>
 
   )
 }
 export default App
+
+/*
+Selectors
+selectors are commonly used to extract, transform, and compute derived state from a 
+state management library. 
+A selector is a pure function that computes derived state from atoms or other selectors.
+As we did for atoms we can do the same for selectors i.e in store folder we create another
+file for selectors.
+*/
 
 
