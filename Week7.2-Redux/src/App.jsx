@@ -263,6 +263,23 @@ export default DataComponent;
 
 
 /*
-See RTK QUERY and useSelector in redux toolkit
+TO STUDY LATER AS BUILDING PROJECT
 
+See RTK QUERY and useSelector in redux toolkit
+✅ Redux Middleware – Understanding getDefaultMiddleware
+✅ Redux DevTools – Debugging with Redux DevTools
+✅ Async State Management with createAsyncThunk
+✅ Handling API Calls in Redux (extraReducers & builder.addCase)
+✅ Error Handling & Loading States
+
+📌 Example: Fetching API Data with createAsyncThunk
+
+🔹 Advanced: Optimizing State Management
+✅ RTK Query – Simplifying API Calls
+✅ Mutations in RTK Query (POST, PUT, DELETE Requests)
+✅ Cache Management & Auto-Refetching in RTK Query
+✅ Handling Authentication (JWT Tokens, Sessions in Redux)
+✅ Using Redux Persist for State Persistence (LocalStorage, SessionStorage)
+
+📌 Example: User Authentication & Profile Management
 */
