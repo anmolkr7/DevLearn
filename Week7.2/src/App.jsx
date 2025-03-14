@@ -130,6 +130,18 @@ state management library.
 A selector is a pure function that computes derived state from atoms or other selectors.
 As we did for atoms we can do the same for selectors i.e in store folder we create another
 file for selectors.
+
+
+Async Selectors in Recoil
+Async selectors in Recoil are used when you need to fetch asynchronous data 
+(e.g., API calls, database queries) while keeping state management efficient.
+
+Use async selectors when:
+1.Fetching data from an API.
+2.Querying a database (e.g., Firebase, MongoDB).
+3.Performing asynchronous computations.
+SEE GPT FOR FURTHER INFO IF NEEDED
+
 */
 
 
