@@ -2,7 +2,10 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-
+import store from './redux/store'
+import {useSelector,useDispatch} from 'react-redux'
+import { increment,decrement } from './redux/slices/counterSlice'
+import { Provider } from 'react-redux'
 /*
 npm install @reduxjs/toolkit react-redux
 
@@ -78,16 +81,74 @@ the <Provider> component to access the Redux store along with the value store as
 
 Step I followed:
 1. Create counter slice in counterSlice.js file inside redux/slices
-and exported actions and reducer
+import createslice and export actions and reducer
 2.Configure the slice(s) into one universal store inside redux/store.js
-
+import configurestore from reduxtoolkit and reducer from counterSlice.js
+3.Inside App.jsx
+You'll need to import tore(containing all reducers of different slices)
+You'll need to import the actions that you exported in CounterSlice.js
+You'll need to import the Provider from reduxtoolkit
+You'll need to import the function useSelector and useDispatch from reduxtoolkit
 */
 function App() {
   return (
       <div>
-        
+        <Count />
       </div>
   )
 }
+function Count()
+{
+  return(
+    <div>
+      <Provider store={store}>
+        <CountRenderer/>
+        <Buttons/>
+      </Provider>
+    </div>
+  )
+}
+function CountRenderer()
+{
+  /*
+  useSelector is a hook from react-redux that allows React components to access specific 
+  parts of the Redux store.
+  const data = useSelector((state) => state.sliceName.property);
 
+  Accessing multiple properties through object destructuring
+  const { count, isLoading } = useSelector((state) => state.counter);
+
+  Use useSelector whenever you need to read data from Redux state inside a component.
+✅ Read state from Redux store.
+✅ Automatically updates the component when state changes.
+✅ Prevents unnecessary re-renders by only selecting the needed part of the state.
+  */
+  const count=useSelector((state)=>state.counter.count)
+  return(
+    <div>
+      Count:{count}
+    </div>
+  )
+}
+function Buttons()
+{
+  /*
+  useDispatch is a hook from react-redux that allows you to send actions to the Redux store to 
+  update the state.
+  const dispatch = useDispatch();
+  dispatch(action);
+
+  When to Use useDispatch?
+✅ When you need to update the Redux store.
+✅ When calling an action from a slice.
+✅ When making API requests (with async thunks).
+  */
+  const dispatch=useDispatch();
+  return(
+    <div>
+      <button onClick={()=>dispatch(increment())}>Increase</button>
+      <button onClick={()=>dispatch(decrement())}>Decrease</button>
+    </div>
+  )
+}
 export default App
