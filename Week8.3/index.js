@@ -103,8 +103,14 @@ postData();
 */
 
 
+
+
 /*
 ✅ Axios GET Request with Headers
+🟢 GET Request Syntax
+axios.get(url, config);
+*/
+/*
 import axios from "axios";
 const axiosWithHeaders = async () => {
   try {
@@ -123,12 +129,19 @@ axiosWithHeaders();
 */
 
 /*
+🔴 POST Request Syntax
+axios.post(url, data, config);
+*/
+/*
 ✅ Axios POST Request with Headers
 const axiosWithHeadersPost = async () => {
   try {
     const response = await axios.post(
       "https://api.example.com/data",
-      { name: "John Doe", email: "john@example.com" }, // Request body
+      { 
+        name: "John Doe", 
+        email: "john@example.com" 
+      }, // Request body
       {
         headers: {
           "Authorization": `Bearer your_token_here`,
