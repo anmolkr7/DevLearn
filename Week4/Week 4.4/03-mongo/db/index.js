@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://anmolkr7:mongodb952@cluster0.qyhdh.mongodb.net/courses');
+mongoose.connect('connection string here');
 
 // Define schemas
 const AdminSchema = new mongoose.Schema({
