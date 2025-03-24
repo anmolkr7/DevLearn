@@ -157,3 +157,39 @@ const axiosWithHeadersPost = async () => {
 };
 axiosWithHeadersPost();
 */
+
+/*
+🔄 5. Axios with Query Parameters
+
+axios.get("https://api.example.com/users", {
+  params: { id: 1, role: "admin" },
+})
+.then(response => console.log(response.data))
+.catch(error => console.error(error));
+*/
+
+/*
+6. Creating an Axios Instance
+Instead of repeating base URLs and headers, create an Axios instance:
+
+const api = axios.create({
+  baseURL: "https://api.example.com",
+  timeout: 5000, // 5 seconds
+  headers: { "Authorization": "Bearer your_token_here" },
+});
+
+// Use the instance for requests
+api.get("/users")
+  .then(response => console.log(response.data))
+  .catch(error => console.error(error));
+*/
+
+
+/*
+OTHER USE CASES OF AXIOS IF NEEDE
+
+Retry Logic	Loop with delay on failure
+Upload File	FormData + multipart/form-data
+Download File	responseType: 'blob'
+Cancel Request	AbortController()
+*/
