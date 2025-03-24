@@ -27,6 +27,18 @@ Before Hooks, only class components could manage state and lifecycle. Hooks allo
 ✅ Running side effects (like API calls, event listeners).
 ✅ Reusing logic across components via custom hooks.
 
+🔄 React Component Lifecycle
+React components go through three main phases:
+1️⃣ Mounting – When a component is added to the DOM.
+2️⃣ Updating – When a component re-renders due to state/props changes.
+3️⃣ Unmounting – When a component is removed from the DOM.
+
+
+Lifecycle Phase	Class Component Method	    Functional Component (Hook)
+Mounting	            componentDidMount	    useEffect(() => {}, [])
+Updating	            componentDidUpdate	  useEffect(() => {}, [dependencies])
+Unmounting	          componentWillUnmount	useEffect(() => { return () => {}; }, [])
+
 
 
 
