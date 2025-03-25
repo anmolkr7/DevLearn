@@ -1,0 +1,46 @@
+TypeScript is a strongly typed superset of JavaScript that adds static typing to the 
+language. It was developed by Microsoft to make JavaScript development more scalable 
+and maintainable. TypeScript compiles down to JavaScript, meaning it runs anywhere
+JavaScript runs (browsers, Node.js, etc.).
+
+Key Features:
+Static Typing – Helps catch errors at compile time instead of runtime.
+Interfaces & Type Annotations – Improves code readability and maintainability.
+Modern JavaScript Features – Supports ES6+ features and compiles them for older environments.
+Better Tooling Support – Works well with editors like VS Code, providing autocompletion, refactoring, and debugging.
+
+Why Use TypeScript?
+Fewer runtime errors due to type checking.
+Improved developer experience with better IntelliSense and documentation.
+Easier to maintain and scale in large codebases.
+
+Where/How does typescript code run?
+->TypeScript code never runs in your browser. Your browser can only understand 
+JavaScript.
+1.JavaScript is the runtime language (the thing that actually runs in your browser/node.js runtime)
+2.typescript is something that compiles down to javascript.
+3.When typescript is compiled down to javascript, you get type checking (similar to c++). 
+If there is an error, the conversion to javascript fails.
+
+Step 1
+Write TypeScript code → script.ts
+
+Step 2
+Compile to JavaScript using the TypeScript compiler (tsc):
+tsc script.ts
+
+Result
+This generates a JavaScript file (script.js).
+
+
+Why TypeScript Needs Compilation:
+1.TypeScript introduces types, interfaces, and features beyond JavaScript, 
+which browsers don't understand.
+2.The TypeScript compiler (tsc) converts it into plain JavaScript that browsers can execute.
+
+Step 1-Install typescript globally
+npm install -g typescript
+
+Step 2-Initialize and empty folder and inside this folder
+npm init -y     (Creates a package.json file)
+tsc --init      (Creates a tsconfig.json file)
