@@ -44,3 +44,8 @@ npm install -g typescript
 Step 2-Initialize and empty folder and inside this folder
 npm init -y     (Creates a package.json file)
 tsc --init      (Creates a tsconfig.json file)
+
+
+After you write some code in your example.ts file then compile it using tsc -b
+this will give a example.js file automatically.
+SO YOU HAVE TO RUN THIS JS FILE NOT TS FILE
