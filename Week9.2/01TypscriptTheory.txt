@@ -48,4 +48,28 @@ tsc --init      (Creates a tsconfig.json file)
 
 After you write some code in your example.ts file then compile it using tsc -b
 this will give a example.js file automatically.
-SO YOU HAVE TO RUN THIS JS FILE NOT TS FILE
+SO YOU HAVE TO RUN THIS JS FILE NOT TS FILE.
+
+---------------------------------------------------------------------------
+The tsconfig.json file
+-----------------------
+The tsconfig file has a bunch of options that you can change to change the compilation process
+Some of these include
+
+1. target
+The target option in tsconfig.json file specifies the ECMAScript target version to which the
+typescript compiler will compile the typescript code.
+
+2.rootDir
+Where the compiler should look for .ts files. Good practise is for this to be the src folder
+
+3.outDir
+Where should the compiler look to spit out the .js files
+So for this good practice is to create a folder and name is dist or build
+and also add this folder to .gitignore
+
+4.noImplicitAny
+makes code less strict if set to false
+
+5.removeComments
+Whether or not include comments in the final .js file

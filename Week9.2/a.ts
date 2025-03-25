@@ -60,3 +60,16 @@ function user(age:number):boolean
 console.log(user(22));
 */
 
+
+/*
+Problem 4-
+Create a function that takes another function as input and runs it after 5 second.
+here we learn how to give type to function that is passed as an argument
+
+Solution:-
+*/
+function sample(fn:()=>void){
+    setTimeout(fn, 5000);
+}
+sample(()=>{console.log("Hello")})
+
