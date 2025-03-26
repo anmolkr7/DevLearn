@@ -73,3 +73,6 @@ makes code less strict if set to false
 
 5.removeComments
 Whether or not include comments in the final .js file
+
+
+----------------------------------------------------------------
